@@ -16,7 +16,7 @@ const cors = require("cors");
 
 app.use(cors({
     origin: ["https://localhost:3000", "http://localhost:3000", 
-        "https://matt-godfrey-portfolio.herokuapp.com/", "http://matt-godfrey-portfolio.herokuapp.com/"]
+        "https://matt-godfrey-portfolio.herokuapp.com", "http://matt-godfrey-portfolio.herokuapp.com"]
 }))
 
 app.use(express.json()); // parse JSON in request
