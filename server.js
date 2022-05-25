@@ -27,6 +27,7 @@ app.set("view engine", "pug");
 app.use("/api/quotes", quotesRouter);
 
 app.get("/", sendIndex);
+app.get("/api", redirect);
 app.get("/api/authors", getAuthors);
 app.get("/api/generateNewQuotes", getNewQuotes);
 
