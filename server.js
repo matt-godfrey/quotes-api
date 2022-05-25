@@ -20,12 +20,13 @@ app.use(cors({
 }))
 
 app.use(express.json()); // parse JSON in request
-// app.use(express.static(path.join(__dirname, "/public"))); // serve static files
+app.use(express.static(path.join(__dirname, "/public"))); // serve static files
 app.set("views", path.join(__dirname, "views")); // set views folder
 app.set("view engine", "pug");
 
 app.use("/api/quotes", quotesRouter);
 
+app.get("/", sendIndex);
 app.get("/api/authors", getAuthors);
 app.get("/api/generateNewQuotes", getNewQuotes);
 
@@ -49,6 +50,14 @@ mc.connect(process.env.MONGO_URI, function(err, client) {
 
     
 })
+
+function redirect(request, res, next) {
+    res.redirect("/");
+}
+
+function sendIndex(request, res, next) {
+    res.render("index");
+}
 
 function randomNum(max) {
     return Math.random() * max;
