@@ -15,7 +15,7 @@ const url = "https://zenquotes.io/api/quotes/";
 const cors = require("cors");
 
 app.use(cors({
-    origin: ["https://localhost:3000", "http://localhost:3000"]
+    origin: ["https://localhost:3000", "http://localhost:3000", "https://matt-godfrey-quotes.herokuapp.com"]
 }))
 
 app.use(express.json()); // parse JSON in request
