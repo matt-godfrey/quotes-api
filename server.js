@@ -28,6 +28,7 @@ app.use("/api/quotes", quotesRouter);
 
 app.get("/", sendIndex);
 app.get("/api", redirect);
+app.get("/api/random", getRandomQuote);
 app.get("/api/authors", getAuthors);
 app.get("/api/generateNewQuotes", getNewQuotes);
 
@@ -54,6 +55,22 @@ mc.connect(process.env.MONGO_URI, function(err, client) {
 
 function redirect(request, res, next) {
     res.redirect("/");
+}
+
+function getRandomQuote(request, res, next) {
+    let quotes = db.collection("quotes").find({}).toArray(function(err, results) {
+        if (err) throw err;
+
+        if (!err && results.length != 0) {
+            let pos = randomNum(results.length);
+            pos = Math.trunc(pos);
+            res.json(results[pos]);
+        }
+    })
+}
+
+function randomNum(max) {
+    return Math.random() * max;
 }
 
 function sendIndex(request, res, next) {

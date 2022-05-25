@@ -9,3 +9,5 @@ https://matt-godfrey-quotes.herokuapp.com/api/quotes => This will return every q
 https://matt-godfrey-quotes.herokuapp.com/api/authors => This will return every unique author
 
 https://matt-godfrey-quotes.herokuapp.com/api/quotes/author?author=someAuthor => returns all quotes by someAuthor
+
+https://matt-godfrey-quotes.herokuapp.com/api/random => returns a random quote
